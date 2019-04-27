@@ -1,16 +1,13 @@
 #!/bin/bash
 
-CONTAINER_GOCD_NAME="gocd-server-container"
-CONTAINER_GOCD_VERSION="gocd/gocd-server:v19.2.0"
-
-if [ "$(docker ps -a -q -f name=$CONTAINER_GOCD_NAME)" ]; then
-  echo "===== GOCD IS RUNNING."
+if [ "$(helm ls --all gocd-app)" ]; then
+  echo "===== GOCD IS INSTALLED"
 
   exit 0
 fi
 
-echo "===== GOCD : CLONING"
-docker pull $CONTAINER_GOCD_VERSION
+echo "===== GOCD : DOWNLOADING REPOSITORY"
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
 
-echo "===== GOCD : RUNNING"
-docker run --name $CONTAINER_GOCD_NAME -d -p8153:8153 -p8154:8154 $CONTAINER_GOCD_VERSION
+echo "===== GOCD : INSTALLING ON KUBERNETES"
+helm install --name gocd-app --namespace gocd stable/gocd -f ./../configurations/values.yaml

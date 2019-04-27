@@ -1,0 +1,124 @@
+rbac:
+  create: true
+  apiVersion: v1beta1
+  roleRef:
+
+serviceAccount:
+  create: true
+  name:
+
+server:
+  enabled: true
+  shouldPreconfigure: true
+  image:
+    repository: "gocd/gocd-server"
+    tag:
+    pullPolicy: "IfNotPresent"
+
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 0.25
+    limits:
+      cpu: 0.75
+      memory: 1024Mi
+
+  nodeSelector: {}
+
+  healthCheck:
+    initialDelaySeconds: 90
+    periodSeconds: 15
+    failureThreshold: 10
+  env:
+    goServerSystemProperties:
+    extraEnvVars:
+      - name: GOCD_PLUGIN_INSTALL_kubernetes-elastic-agents
+        value: https://github.com/gocd/kubernetes-elastic-agents/releases/download/v1.0.2/kubernetes-elastic-agent-1.0.2-108.jar
+      - name: GOCD_PLUGIN_INSTALL_docker-registry-artifact-plugin
+        value: https://github.com/gocd/docker-registry-artifact-plugin/releases/download/1.0.0/docker-registry-artifact-plugin-1.0.0-3.jar
+  service:
+    type: "ClusterIP"
+    httpPort: 8153
+    httpsPort: 8154
+    nodeHttpPort:
+    nodeHttpsPort:
+    annotations: {}
+  ingress:
+    enabled: true
+    hosts:
+      - ci.example.com
+    annotations:
+      kubernetes.io/ingress.class: nginx-default
+    tls:
+
+  persistence:
+    enabled: false
+    accessMode: "ReadWriteOnce"
+    size: 2Gi
+    existingClaim:
+    pvSelector:
+    name:
+      dockerEntryPoint: goserver-vol
+    subpath:
+      godata: godata
+      homego: homego
+      dockerEntryPoint: scripts
+    extraVolumes: []
+    extraVolumeMounts: []
+
+  hostAliases:
+
+  security:
+    ssh:
+      enabled: false
+      secretName: gocd-server-ssh
+
+agent:
+  replicaCount: 0
+  image:
+    repository: "gocd/gocd-agent-alpine-3.6"
+    tag:
+    pullPolicy: "IfNotPresent"
+  env:
+    goServerUrl:
+    agentAutoRegisterKey:
+    agentAutoRegisterResources:
+    agentAutoRegisterEnvironemnts:
+    agentAutoRegisterHostname:
+    goAgentSystemProperties:
+    goAgentBootstrapperArgs:
+    goAgentBootstrapperJvmArgs:
+    extraEnvVars:
+  persistence:
+    enabled: false
+    accessMode: "ReadWriteOnce"
+    size: 2Gi
+    existingClaim:
+    pvSelector:
+    name:
+      dockerEntryPoint: goagent-vol
+    subpath:
+      homego: homego
+      dockerEntryPoint: scripts
+    extraVolumes: []
+    extraVolumeMounts: []
+  privileged: false
+
+  healthCheck:
+    enabled: false
+    initialDelaySeconds: 60
+    periodSeconds: 60
+    failureThreshold: 60
+
+  security:
+    ssh:
+      enabled: false
+      secretName: gocd-agent-ssh
+
+  resources:
+    limits:
+      cpu: 0.25
+      memory: 256Mi
+
+  hostAliases:
+  nodeSelector: {}
