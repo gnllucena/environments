@@ -52,7 +52,7 @@ server:
     tls:
 
   persistence:
-    enabled: false
+    enabled: true
     accessMode: "ReadWriteOnce"
     size: 2Gi
     existingClaim:

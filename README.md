@@ -1,7 +1,6 @@
 ## Softwares
-- jq
-    https://stedolan.github.io/jq/download/
-    
+- openssl
+
 - make
     sudo apt install make
 
