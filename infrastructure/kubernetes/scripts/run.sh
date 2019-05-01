@@ -11,3 +11,6 @@ fi
 
 echo "===== KUBERNETES : STARTING"
 minikube start --bootstrapper kubeadm
+
+echo "===== KUBERNETES : ENABLING INGRESS"
+minikube addons enable ingress
