@@ -1,19 +1,8 @@
 ## Softwares
-- openssl
-
 - make
-    sudo apt install make
-
-- gradlew
-    sudo apt install gradle
-
-- minikube
-    https://kubernetes.io/docs/tasks/tools/install-minikube/
-
-- kubectl
-    https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 - virtualbox 
+
 - docker server
     https://docs.docker.com/install/
     
@@ -37,11 +26,8 @@
 
         5. O daemon do Docker está sendo exposto na porta 2375 pelo Windows
 
-    Macos:
-        1. Tenha HD
+- minikube
+    https://kubernetes.io/docs/tasks/tools/install-minikube/
 
-    Linux:
-        <3
-
-## GoCD
-
+- kubectl
+    https://kubernetes.io/docs/tasks/tools/install-kubectl/

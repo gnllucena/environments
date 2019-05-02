@@ -10,7 +10,7 @@ if [ "$(kubectl cluster-info dump)" ]; then
 fi
 
 echo "===== KUBERNETES : STARTING"
-minikube start --bootstrapper kubeadm
+minikube start --bootstrapper kubeadm --memory 6144
 
 echo "===== KUBERNETES : ENABLING INGRESS"
 minikube addons enable ingress

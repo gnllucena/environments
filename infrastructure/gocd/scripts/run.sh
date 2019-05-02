@@ -7,4 +7,6 @@ if [ "$(helm ls --all app-gocd)" ]; then
 fi
 
 echo "===== GOCD : INSTALLING"
-helm install --name app-gocd --namespace gocd stable/gocd --version 1.9.0
+helm install --name gocd --namespace gocd stable/gocd --version 1.9.0
+
+# https://www.vand.io/chart/stable/gocd/ ssh

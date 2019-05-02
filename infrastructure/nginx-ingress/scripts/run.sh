@@ -7,4 +7,4 @@ if [ ! "$(kubectl cluster-info dump)" ]; then
 fi
 
 echo "===== NGINX INGRESS : INSTALLING"
-helm install --name app-nginx-ingress stable/nginx-ingress --version 1.6.0
+helm install --name nginx-ingress stable/nginx-ingress --version 1.6.0
