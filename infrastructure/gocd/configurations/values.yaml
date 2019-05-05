@@ -94,6 +94,8 @@ server:
     extraEnvVars:
       - name: GOCD_PLUGIN_INSTALL_kubernetes-elastic-agents
         value: https://github.com/gocd/kubernetes-elastic-agents/releases/download/v3.0.0-156/kubernetes-elastic-agent-3.0.0-156.jar
+      - name: GOCD_PLUGIN_INSTALL_script-executor-task
+        value: https://github.com/gocd-contrib/script-executor-task/releases/download/0.3/script-executor-0.3.0.jar
   service:
     # server.service.type is the GoCD Server service type
     type: "NodePort"
