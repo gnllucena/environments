@@ -1,3 +1,18 @@
+## ROADMAP
+    SOFTWARE:
+        NUGET
+        DOCKERREGISTRY
+        DEPLOYS
+        DEPLOYS-TESTS
+        FALLBACK
+        CANARIO
+
+    ENVIRONMENTS:
+        INCEPTION
+        INCEPTION-TESTS
+        FALLBACK
+        SEGURANCA
+
 ## Softwares
 - make
 

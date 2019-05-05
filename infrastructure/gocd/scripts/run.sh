@@ -1,5 +1,6 @@
 # !/bin/bash
 
+# verificar se existe algum deployment em qualquer status
 if [ "$(helm status gocd)" ]; then
   echo "===== GOCD IS RUNNING"
 
