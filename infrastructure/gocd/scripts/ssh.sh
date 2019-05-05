@@ -1,18 +1,58 @@
 # !/bin/bash
 
-# verificar se o kubernetes ta up
-# if [ ! "$(helm status gocd)" ]; then
-#   echo "===== GOCD IS NOT RUNNING"
+# git@ssh.dev.azure.com:v3/Monqei/Nuget/monqei-services
+#
+# TODO: a url do fingerprint deveria ser uma variavel de ambiente global
+#
 
-#   exit 0
-# fi
+CONTAINER_GOCD_NAME="gocd-server-container"
+FOLDER_SSHKEYS="./../../../tools/keys"
+FOLDER_SSHKEYNAME="id_rsa"
+FOLDER_KNOWNHOSTSNAME="known_hosts"
+FOLDER_GOCD_SSHKEYS="/home/go/.ssh"
+
+if ! test -f "$FOLDER_SSHKEYS/$FOLDER_SSHKEYNAME"; then
+    echo "===== GOCD : CREATING SSH KEYS"
+
+    mkdir -p $FOLDER_SSHKEYS
+    
+    ssh-keygen -t rsa -b 4096 -f $FOLDER_SSHKEYS/$FOLDER_SSHKEYNAME
+fi
 
 echo "===== GOCD : SSH KEYS PATH"
-cd ./../../../tools/keys
+cd $FOLDER_SSHKEYS
 pwd
 
-echo "===== GOCD : CONFIGURING SSH KEYS"
-kubectl create --namespace gocd secret generic gocd-agent-ssh \
-    --from-file=id_rsa=id_rsa \
-    --from-file=id_rsa.pub=id_rsa.pub \
-    --from-file=known_hosts=known_hosts
+if ! test -f "$FOLDER_KNOWNHOSTSNAME"; then
+    echo "===== GOCD : GENERATING SSH FINGERPRINTS"
+    
+    ssh-keyscan ssh.dev.azure.com >> $FOLDER_KNOWNHOSTSNAME
+fi
+
+echo "===== GOCD : DELETING GOCD SECRETS"
+kubectl delete secret --namespace gocd gocd-server-ssh
+kubectl delete secret --namespace gocd gocd-agent-ssh
+# TODO:
+# kubectl delete secret --namespace gocd docker-registry
+
+echo "===== GOCD : CONFIGURING SSH KEYS FOR GOCD SERVER"
+kubectl create secret --namespace gocd generic gocd-server-ssh \
+    --from-file=id_rsa=$FOLDER_SSHKEYNAME \
+    --from-file=id_rsa.pub=$FOLDER_SSHKEYNAME.pub \
+    --from-file=known_hosts=$FOLDER_KNOWNHOSTSNAME
+
+echo "===== GOCD : CONFIGURING SSH KEYS FOR GOCD AGENT"
+kubectl create secret --namespace gocd generic gocd-agent-ssh \
+    --from-file=id_rsa=$FOLDER_SSHKEYNAME \
+    --from-file=id_rsa.pub=$FOLDER_SSHKEYNAME.pub \
+    --from-file=known_hosts=$FOLDER_KNOWNHOSTSNAME
+
+echo "===== GOCD : CONFIGURING PRIVATE DOCKER REGISTRY SECRETS"
+# TODO:
+# kubectl create secret --namespace gocd docker-registry \
+# 	my-docker-registry \
+# 	--namespace gocd \
+# 	--docker-server=<docker_server_url> \
+# 	--docker-username=<username> \
+# 	--docker-password=<password> \
+# 	--docker-email=<email>

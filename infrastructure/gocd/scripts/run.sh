@@ -1,6 +1,6 @@
 # !/bin/bash
 
-# verificar se existe algum deployment em qualquer status
+# TODO: erificar se existe algum deployment em qualquer status
 if [ "$(helm status gocd)" ]; then
   echo "===== GOCD IS RUNNING"
 
@@ -8,4 +8,4 @@ if [ "$(helm status gocd)" ]; then
 fi
 
 echo "===== GOCD : INSTALLING"
-helm install --name gocd --namespace gocd stable/gocd -f ./../configurations/values.yaml --version 1.9.0
+helm install --name gocd --namespace gocd stable/gocd -f ./../configurations/values.yaml --version 1.9.0 --set agent.security.ssh.enabled=true,server.security.ssh.enabled=true,agent.replicaCount=2

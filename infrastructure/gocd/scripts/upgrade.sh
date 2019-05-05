@@ -1,3 +1,5 @@
+TODO: ATUALIZAR DINAMICAMENTE O CONFIG.XML
+
 kubectl exec -it shell-demo -- /bin/bash
 
 #https://docs.gocd.org/current/installation/install/server/linux.html#location-of-gocd-server-files

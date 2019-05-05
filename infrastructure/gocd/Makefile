@@ -1,5 +1,9 @@
 install:
 
+update:
+
+test:
+
 proxy:
 
 status: 
