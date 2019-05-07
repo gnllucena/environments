@@ -32,8 +32,7 @@ fi
 echo "===== GOCD : DELETING GOCD SECRETS"
 kubectl delete secret --namespace gocd gocd-server-ssh
 kubectl delete secret --namespace gocd gocd-agent-ssh
-# TODO:
-# kubectl delete secret --namespace gocd docker-registry
+kubectl delete secret --namespace gocd docker-registry
 
 echo "===== GOCD : CONFIGURING SSH KEYS FOR GOCD SERVER"
 kubectl create secret --namespace gocd generic gocd-server-ssh \
@@ -48,11 +47,10 @@ kubectl create secret --namespace gocd generic gocd-agent-ssh \
     --from-file=known_hosts=$FOLDER_KNOWNHOSTSNAME
 
 echo "===== GOCD : CONFIGURING PRIVATE DOCKER REGISTRY SECRETS"
-# TODO:
-# kubectl create secret --namespace gocd docker-registry \
-# 	my-docker-registry \
-# 	--namespace gocd \
-# 	--docker-server=<docker_server_url> \
-# 	--docker-username=<username> \
-# 	--docker-password=<password> \
-# 	--docker-email=<email>
+kubectl create secret --namespace gocd docker-registry \
+	docker-registry \
+	--namespace gocd \
+	--docker-server=localhost:5000 \
+	--docker-username=user \
+	--docker-password=password \
+	--docker-email=registry@monqei.com

@@ -19,4 +19,4 @@ spec:
       volumeMounts: 
         - name: ssh-secrets
           readOnly: true
-          mountPath: /home/go/.ssh      
+          mountPath: /home/go/.ssh

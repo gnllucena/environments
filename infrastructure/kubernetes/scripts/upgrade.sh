@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 if [ ! "$(kubectl cluster-info dump)" ]; then
   echo "===== KUBERNETES IS NOT RUNNING"
