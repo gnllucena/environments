@@ -1,6 +1,6 @@
 # !/bin/bash
 
-KUBERNETES_MEMORY="4048"
+KUBERNETES_MEMORY="10000"
 
 if [ "$(kubectl cluster-info dump)" ]; then
   echo "===== KUBERNETES IS RUNNING"

@@ -11,6 +11,8 @@ spec:
     - name: ssh-secrets
       secret:
         secretName: gocd-agent-ssh
+  imagePullSecrets:
+    - name: docker-registry
   containers:
     - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
       image: gocd/gocd-agent-docker-dind:v19.3.0

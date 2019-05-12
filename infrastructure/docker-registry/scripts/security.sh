@@ -1,0 +1,1 @@
+# TODO: remover o docker login do build.gocd.yaml

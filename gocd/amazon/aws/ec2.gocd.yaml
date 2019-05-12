@@ -1,0 +1,27 @@
+environments:
+  build:
+    pipelines:
+      - monqei-services
+
+pipelines:
+  monqei-services:
+    group: Build
+    label_template: "0.0.${COUNT}"
+    locking: off
+    materials:
+      source:
+        git: git@ssh.dev.azure.com:v3/Monqei/Nuget/monqei-services
+        branch: master
+        auto_update: yes
+        shallow_clone: yes
+    stages:
+      - build:
+          fetch_materials: yes
+          clean_workspace: yes
+          jobs:
+            build:
+              elastic_profile_id: demo-app
+              tasks:
+                - script: |
+                    docker build -t monquei.com/registry/problems/services:$(GO_PIPELINE_LABEL) .
+                    docker push monquei.com/registry/problems/services:$(GO_PIPELINE_LABEL) 
