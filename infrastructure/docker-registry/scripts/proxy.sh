@@ -1,6 +1,6 @@
 # !/bin/bash
 
-# TODO: verificar se o deployment do gocd-server tem um pod em status running
+# TODO: verificar se o deployment do docker-registry está rodando
 if [ ! "$(helm status docker-registry)" ]; then
   echo "===== DOCKER REGISTRY IS NOT RUNNING"
 

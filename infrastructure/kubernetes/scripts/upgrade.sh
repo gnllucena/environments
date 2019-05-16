@@ -14,3 +14,4 @@ helm init --history-max 200
 
 echo "===== HELM : ADDING DEFAULT REPOSITORIES"
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo add jfrog https://charts.jfrog.io
