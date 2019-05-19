@@ -13,4 +13,4 @@ helm install stable/gocd \
      --namespace gocd \
      --version 1.9.0 \
      --values ./../configurations/chart/values.yaml \
-     --set agent.security.ssh.enabled=true,server.security.ssh.enabled=true,agent.replicaCount=2
+     --set agent.security.ssh.enabled=true,server.security.ssh.enabled=true,agent.replicaCount=1
