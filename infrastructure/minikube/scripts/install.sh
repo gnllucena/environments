@@ -1,6 +1,6 @@
 # !/bin/bash
 
-KUBERNETES_MEMORY="10000"
+KUBERNETES_MEMORY="4096"
 
 if [ "$(kubectl cluster-info dump)" ]; then
   echo "===== KUBERNETES IS RUNNING"
@@ -9,7 +9,9 @@ if [ "$(kubectl cluster-info dump)" ]; then
 fi
 
 echo "===== MINIKUBE : STARTING"
-minikube start --bootstrapper kubeadm --memory $KUBERNETES_MEMORY
+minikube start --bootstrapper kubeadm \
+               --memory $KUBERNETES_MEMORY \
+               --insecure-registry "172.17.0.8:8083"
 
 echo "===== MINIKUBE : ENABLING INGRESS"
 minikube addons enable ingress

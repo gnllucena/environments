@@ -13,6 +13,13 @@ DOCKERREGISTRY_USERNAME="username"
 DOCKERREGISTRY_PASSWORD="password"
 DOCKERREGISTRY_EMAIL="email"
 
+echo "===== GOCD : CREATING KUBERNETES NAMESPACE"
+{
+    kubectl get namespace gocd
+} || {
+    kubectl create -f ./../configurations/chart/namespace.yaml
+}
+
 if ! test -f "$FOLDER_SSHKEYS/$FOLDER_SSHKEYNAME"; then
     echo "===== GOCD : CREATING SSH KEYS"
 

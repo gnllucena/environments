@@ -34,7 +34,7 @@ nexus:
   nexusPort: 8081
   service:
     type: NodePort
-    # clusterIP: None
+    clusterIP: None
   # annotations: {}
   # labels: {}
   # securityContext:

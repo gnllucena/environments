@@ -13,4 +13,4 @@ helm install stable/sonatype-nexus \
      --namespace nexus \
      --version 1.18.1 \
      --values ./../configurations/chart/values.yaml \
-     --set nexusProxy.env.nexusDockerHost=localhost,nexusProxy.env.nexusHttpHost=localhost
+     --set nexusProxy.env.nexusDockerHost=localhost,nexusProxy.env.nexusHttpHost=localhost,nexus.service.clusterIP=10.100.109.66

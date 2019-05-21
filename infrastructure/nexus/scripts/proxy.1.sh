@@ -8,5 +8,5 @@ if [ ! "$(helm status nexus)" ]; then
 fi
 
 echo "===== NEXUS : PROXYNG"
-docker login localhost:8083    
+# docker login localhost:8083    
 kubectl port-forward --namespace nexus $(kubectl get pods --namespace nexus --template='{{(index (index .items 0).metadata.name)}}{{"\n"}}') 8083:8083
