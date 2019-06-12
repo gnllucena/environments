@@ -1,0 +1,48 @@
+{
+  "version": "0.33.0",
+  "artifacts": {
+    "ECR": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://985598771480/us-east-1",
+      "properties": {
+        "templateFile": "ECR.template.json"
+      },
+      "metadata": {
+        "/ECR/f623db3d-54c9-4a1e-8d0a-20ec840a1e51/f623db3d-54c9-4a1e-8d0a-20ec840a1e51/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "f623db3d54c94a1e8d0a20ec840a1e515C332B4F",
+            "trace": [
+              "new Repository (C:\\Users\\gnllu\\AppData\\Local\\Temp\\jsii-kernel-kJ9EM1\\node_modules\\@aws-cdk\\aws-ecr\\lib\\repository.js:118:26)",
+              "obj._wrapSandboxCode (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6661:49)",
+              "Kernel._wrapSandboxCode (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:7126:20)",
+              "Kernel._create (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6661:26)",
+              "Kernel.create (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6414:21)",
+              "KernelHost.processRequest (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6186:28)",
+              "KernelHost.run (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6132:14)",
+              "processRequest (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6132:45)",
+              "KernelHost.processRequest (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6228:16)",
+              "KernelHost.run (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6132:14)",
+              "processRequest (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6132:45)",
+              "KernelHost.processRequest (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6228:16)",
+              "KernelHost.run (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6132:14)",
+              "processRequest (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6132:45)",
+              "promise.then.val (C:\\Users\\gnllu\\AppData\\Local\\Temp\\poplwfui.kfl\\jsii-runtime.js:6213:21)"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "libraries": {
+      "@aws-cdk/cx-api": "0.33.0",
+      "@aws-cdk/cdk": "0.33.0",
+      "@aws-cdk/region-info": "0.33.0",
+      "@aws-cdk/aws-iam": "0.33.0",
+      "@aws-cdk/aws-events": "0.33.0",
+      "@aws-cdk/aws-ecr": "0.33.0",
+      "jsii-runtime": "DotNet/4.0.30319.42000"
+    }
+  }
+}

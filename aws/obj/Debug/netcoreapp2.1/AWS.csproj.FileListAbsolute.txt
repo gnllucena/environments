@@ -1,0 +1,8 @@
+C:\git\gnllucena\aws\AWS\AWS\bin\Debug\netcoreapp2.1\AWS.deps.json
+C:\git\gnllucena\aws\AWS\AWS\bin\Debug\netcoreapp2.1\AWS.runtimeconfig.json
+C:\git\gnllucena\aws\AWS\AWS\bin\Debug\netcoreapp2.1\AWS.runtimeconfig.dev.json
+C:\git\gnllucena\aws\AWS\AWS\bin\Debug\netcoreapp2.1\AWS.dll
+C:\git\gnllucena\aws\AWS\AWS\obj\Debug\netcoreapp2.1\AWS.csprojAssemblyReference.cache
+C:\git\gnllucena\aws\AWS\AWS\obj\Debug\netcoreapp2.1\AWS.csproj.CoreCompileInputs.cache
+C:\git\gnllucena\aws\AWS\AWS\obj\Debug\netcoreapp2.1\AWS.AssemblyInfoInputs.cache
+C:\git\gnllucena\aws\AWS\AWS\obj\Debug\netcoreapp2.1\AWS.AssemblyInfo.cs
