@@ -8,16 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Amazon.CDK" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.APIGateway" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.CloudWatch" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.Cognito" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.EC2" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.ECR" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.EKS" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.Lambda" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.RDS" Version="0.33.0" />
-    <PackageReference Include="Amazon.CDK.AWS.SNS" Version="0.33.0" />
+    <PackageReference Include="Amazon.CDK" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.APIGateway" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.CloudWatch" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.Cognito" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.EC2" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.ECR" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.EKS" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.Lambda" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.RDS" Version="0.35.0" />
+    <PackageReference Include="Amazon.CDK.AWS.SNS" Version="0.35.0" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.100.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />

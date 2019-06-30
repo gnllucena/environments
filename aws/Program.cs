@@ -1,4 +1,5 @@
-﻿using AWS.Domains.Services;
+﻿using AWS.Domains.Options;
+using AWS.Domains.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,8 +29,7 @@ namespace AWS
             {
                 services.AddOptions();
 
-                //services.Configure<Messaging>(hostContext.Configuration.GetSection("Messaging"));
-                //services.Configure<Database>(hostContext.Configuration.GetSection("Database"));
+                services.Configure<AwsOptions>(hostContext.Configuration.GetSection("AWS"));
 
                 services.AddTransient<IOrchestratorService, OrchestratorService>();
 

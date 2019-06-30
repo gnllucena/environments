@@ -26,9 +26,13 @@ namespace AWS.Domains.Services
                 try
                 {
                     await _orchestratorService.OrchestrateAsync();
+
+                    Console.WriteLine("FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOI!");
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
+
                     throw ex;
                 }
             }

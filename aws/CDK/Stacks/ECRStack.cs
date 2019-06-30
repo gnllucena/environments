@@ -1,32 +1,31 @@
 ﻿using Amazon.CDK;
 using Amazon.CDK.AWS.ECR;
 using AWS.CDK.Constructs;
-using System;
+using AWS.Domains.Options;
 
 namespace AWS.CDK.Stacks
 {
     public class ECRStack : Stack
     {
-        public ECRStack(Construct parent, string name, IStackProps props) : base(parent, name, props)
+        public ECRStack(Construct parent, IStackProps props, AwsOptions awsOptions) : base(parent, awsOptions.Registry.Name, props)
         {
-            new ECRRepositoryConstruct(this, Guid.NewGuid().ToString(), new RepositoryProps()
+            new ECRRepositoryConstruct(this, awsOptions.Registry.Name, new RepositoryProps()
             {
-                LifecycleRegistryId = name,
                 LifecycleRules = new LifecycleRule[]
                 {
                     new LifecycleRule()
                     {
-                        Description = "Default registry for staging account",
-                        MaxImageAgeDays = 10,
+                        Description = awsOptions.Registry.Description,
+                        MaxImageAgeDays = awsOptions.Registry.MaxDaysRetention,
                         TagStatus =  TagStatus.Tagged,
                         TagPrefixList = new string[]
                         {
-                            "STAGING_"
+                            awsOptions.Registry.Prefix
                         }
                     }
                 },
-                RepositoryName = "Default name",
-                Retain = true
+                RemovalPolicy = RemovalPolicy.Destroy,
+                RepositoryName = awsOptions.Registry.Name
             });
         }
     }

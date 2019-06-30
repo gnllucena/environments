@@ -1,0 +1,14 @@
+{
+  "Resources": {
+    "semnome013ECR9AFADE80": {
+      "Type": "AWS::ECR::Repository",
+      "Properties": {
+        "LifecyclePolicy": {
+          "LifecyclePolicyText": "{\"rules\":[{\"rulePriority\":1,\"description\":\"REGISTRY COM AS IMAGENS DOCKER DE STAGING\",\"selection\":{\"tagStatus\":\"tagged\",\"tagPrefixList\":[\"STAGING_\"],\"countType\":\"sinceImagePushed\",\"countNumber\":2,\"countUnit\":\"days\"},\"action\":{\"type\":\"expire\"}}]}"
+        },
+        "RepositoryName": "semnome013_ECR"
+      },
+      "DeletionPolicy": "Delete"
+    }
+  }
+}
